@@ -7,7 +7,8 @@
     <title>TO-DO-LIST</title>
   
     <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -17,16 +18,16 @@
     </video> 
 
   <div class="relative flex justify-center pt-[58px]">
-    <div class=" w-[436px] h-[93px] rounded-[85px] bg-[#D9D9D980] border-[1px] border-[#FFFFFFB2]">
-      <h1 class="flex items-center justify-center py-4 bg-clip-text text-transparent bg-gradient-to-r from-[#C4564D] to-[#864B49] text-[64px] font-normal
+    <div class=" w-[350px] h-[65px] rounded-[85px] bg-[#D9D9D980] border-[1px] border-[#FFFFFFB2]">
+      <h1 class="flex items-center justify-center py-1 bg-clip-text text-transparent bg-gradient-to-r from-[#C4564D] to-[#864B49] text-[64px] font-normal
       leading-[100%] mx-auto font-[Baloo] text-center">To-Do-List</h1>
     </div>
   </div>
 
 <div class="relative flex items-center pt-[44px] mx-auto px-5 max-w-[1144px] w-full">
-    <input type="text" id="taskInput" placeholder="Enter Your Task" class="w-[614px] h-[65px] rounded-[7px] text-[#FFFFFF] text-left
+    <input type="text" id="taskInput" placeholder="Enter Your Task" class="w-[614px] h-[50px] rounded-[50px] text-[#FFFFFF] text-left
     text-2xl font-[Baloo] outline-none border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[180px] pl-4">
-    <button onclick="addTask()" title="Add task" class="w-[90px] rounded-full border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[20px]"> <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> 
+    <button onclick="addTask()" title="Add task" class="w-[50px] h-[50px] rounded-full border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[20px]"> <svg width=[50px] height=[50px] viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> 
 <rect width="90" height="90" fill="url(#pattern0_30_326)"/>
 <defs>
 <pattern id="pattern0_30_326" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -36,19 +37,18 @@
 </defs>
 </svg>
 </button>
-<select id="filterSelect" title="Filter tasks" class="relative font-[Baloo] text-white ml-[80px] 
-    w-[250px] h-[62px] font-normal text-[24px] leading-[100%]
-     rounded-xl shadow-xl border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] pl-[25px]">
+<select id="filterSelect" title="Filter tasks" class="relative font-[Baloo] text-white ml-[50px] 
+    w-[150px] h-[50px] font-normal text-[24px] leading-[100%]
+     rounded-[50px] shadow-xl border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] pl-[15px]">
        
-        <option class="all bg-[#C4BABA5E] border-[#FFFFFFB2] border-[2px] text-white" value="all">ALL</option>
         <option class="all bg-[#C4BABA5E] border-[#FFFFFFB2] border-[2px] text-white" value="all">ALL</option>
         <option class="complete bg-[#C4BABA5E] border-[#FFFFFFB2] border-[2px] text-white" value="complete">Completed</option>
         <option class="incomplete bg-[#C4BABA5E] border-[#FFFFFFB2] border-[2px] text-white" value="incomplete">Incomplete</option>
       </select>
 </div>
 
-<div class="relative flex items-center pt-[64px] mx-auto px-5 max-w-[1144px] w-full">
-</div>
+<div class="relative flex items-center pt-[64px] mx-auto px-5 max-w-[1144px] w-full"></div>
+<div id="taskList" class="w-full flex flex-col gap-4"></div>
 
 </div>
 
