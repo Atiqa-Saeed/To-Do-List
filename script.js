@@ -1,6 +1,16 @@
 let tasks = [];
 
-// function add task
+// enter key listener 
+const taskInput = document.getElementById("taskInput");
+
+taskInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        addTask();
+    }
+});
+
+// add task
 function addTask() {
     const taskInput = document.getElementById("taskInput");
     const taskText = taskInput.value.trim();
@@ -17,16 +27,20 @@ function addTask() {
     };
 
     tasks.push(task);
+    alert("Task entered successfully!");
 
     taskInput.value = "";
-
+    
+    console.log("render running", tasks);
     renderTasks();
 }
 
-// function render task
+// render tasks
 function renderTasks() {
     const taskList = document.getElementById("taskList");
+     console.log(taskList);
     const filter = document.getElementById("filterSelect").value;
+
 
     taskList.innerHTML = "";
 
@@ -41,35 +55,54 @@ function renderTasks() {
     }
 
     filteredTasks.forEach(task => {
-        const taskCard = document.createElement("div");
+        const taskCard = document.createElement("li");
 
         taskCard.className =
-            "w-[800px] mx-auto h-[70px] rounded-xl border border-white/60 bg-[#C4BABA5E] flex items-center justify-between px-5";
+                   "w-[530px] mx-auto h-[50px] rounded-[50px] border border-white bg-[#C4BABA5E] flex items-center justify-between px-5 ml-[250px]";
 
         taskCard.innerHTML = `
             <div class="flex items-center gap-4">
-                <input
-                    type="radio"
-                    ${task.completed ? "checked" : ""}
-                    onchange="toggleTask(${task.id})"
-                    class="w-5 h-5"
-                >
 
-                <span class="font-[Baloo] text-white text-2xl ${
-                    task.completed ? "line-through opacity-60" : ""
-                }">
-                    ${task.title}
+                <span class="font-[Baloo] text-white text-2xl 
+                ${task.completed ? "line-through opacity-60" : ""}">
+                ${task.title}
                 </span>
             </div>
 
-            <button
-                onclick="deleteTask(${task.id})"
-                class="text-red-400 text-3xl cursor-pointer"
-                title="Delete Task">
-                 <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
-      `;
+    <div class="flex items-center gap-4">
+          <input type="checkbox"
+          ${task.completed ? "checked" : ""}
+          onchange="toggleTask(${task.id})"
+          class="rounded-full w-6 h-6 accent-gray-500"/>
+
+        <button
+            onclick="deleteTask(${task.id})"
+            class="text-white text-3xl cursor-pointer"
+            title="Delete Task">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+    </div>
+            `;
 
         taskList.append(taskCard);
     });
 }
+
+// toggle complete / incomplete
+function toggleTask(id) {
+    tasks = tasks.map(task => {
+        if (task.id === id) {
+            return { ...task, completed: !task.completed };
+        }
+        return task;
+    });
+
+    renderTasks();
+}
+
+// delete task
+function deleteTask(id) {
+    tasks = tasks.filter(task => task.id !== id);
+    renderTasks();
+}
+
