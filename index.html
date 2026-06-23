@@ -3,53 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>TO-DO-LIST</title>
-  
     <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Baloo+Bhaina' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Baloo+Tammudu+2' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
     <div class="relative min-h-screen w-full overflow-hidden">
-    <video autoplay muted loop class="fixed right-0 bottom-0 min-w-full min-h-full object-cover z-0">
-    <source src="./Chillhop - White Oak.mp4" type="video/mp4">
-    </video> 
+        <video autoplay muted loop class="fixed right-0 bottom-0 min-w-full min-h-full object-cover z-0">
+            <source src="./Chillhop - White Oak.mp4" type="video/mp4">
+        </video>
 
-  <div class="relative flex justify-center pt-[58px]">
-    <div class=" w-[350px] h-[65px] rounded-[85px] bg-[#D9D9D980] border-[1px] border-[#FFFFFFB2]">
-      <h1 class="flex items-center justify-center py-1 bg-clip-text text-transparent bg-gradient-to-r from-[#C4564D] to-[#864B49] text-[64px] font-normal
-      leading-[100%] mx-auto font-[Baloo] text-center">To-Do-List</h1>
-    </div>
-  </div>
+  
+        <div class="relative flex justify-center pt-[58px]">
+            <div class="w-[350px] h-[65px] rounded-[85px] backdrop-blur-md bg-white/10 border border-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.35)] flex items-center justify-center pt-2">
+                <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-[#C4564D] to-[#864B49] text-[50px] font-normal leading-[100%] font-[Baloo]">To-Do-List</h1>
+            </div>
+        </div>
 
-<div class="relative flex items-center pt-[44px] mx-auto px-5 max-w-[1144px] w-full">
-    <input type="text" id="taskInput" placeholder="Enter Your Task" class="w-[614px] h-[50px] rounded-xl text-[#FFFFFF] text-left
-    text-2xl font-[Baloo] outline-none border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[180px] pl-4">
-    <button onclick="addTask()" title="Add task" class="w-[50px] h-[50px] rounded-full border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[20px]"> <svg width="50px" height="50px" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> 
-<rect width="90" height="90" fill="url(#pattern0_30_326)"/>
-<defs>
-<pattern id="pattern0_30_326" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image0_30_326" transform="scale(0.0111111)"/>
-</pattern>
-<image id="image0_30_326" width="90" height="90" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD8ElEQVR4nO2dS08UQRDHKxEVo9ErDxM16BdAPYmRGPWqHtTEV8TXBRNEAnj05uNESPwaPg8Y/QAag0Hg4kW9+Ii6gJ6EBPyZCm3cA6uQ7emumelfspfN7GzVf3d6uquqa0QSiUQikUgkEolEIrE8gFXAbuACcAd4AEwAb4FpYM69pt17E+6Y2+4zu/Qcy/y6cgFsBq4Cj4Ef1M934BHQA7RKmQHWAWeAZ8AC2TEPPAVOA41SFoAN7p/2kfB8BW4Am6SoAKuBfmCK+KgNfWqTFAlgLzCJPd4AByTv6JgI3AV+YRe1bRhYK3kE2Aq8ID+8ArZLntDL0dM0LTQ6LdwveQA4Cvwkv8wBJ8QywOWM58ShUB8uiUWAI25xUBQWgONiCR3XgFmKxxxwSCwA7MjpjW8lN8i22CKvddOiojMadZ7tFiMhL+N+oNm9Btx7oRiOJfK+wCu+gSVsGAz4/eprR2iRG4BxwtK8hB1NgW2YDBqIcpdwUKS2LaHpDRlPrpRY6IpqEELokOOiRaGVvhBhz08xPBNbQn/WVFyWQp+N5BjGhFZOZim0JlKjIPaEHslK5NaYQSOxJ/RCJqUMru4iGmJPaOVKFkJrcUs0xKbQ97Io05qJ6ZHYFHrGa/mZq4WLitgUWtnpU+iLsb0Ru0J3+RRaqzqjInaFvulT6IexvRG7Qvu7IUYIieZJ6DGfQr/3kRkRY3jK1LzzaVDFZ2bEGnVGJL/5NKSeX7xZjFNnpmbWitAtYhwXxzEhdD1Dx6AYB7huZeio92Y4aPGfrTY528zcDNP0LtD0Li1YAi1Y0hI80BJcd6RGRWrbFptzPoVOYdLatPsUOgX+QwT+ndi6tzoaUtuu4qSynEO6rTgaYlPo7qwm96nc4C+qRZN3oZ3Y2iUgClLbpmIV0DintO1DFKRkJWGNkdo/UKoix1hF6AaFvpapyM6x9RoaLLHQlSCF6M45bSpSVqF7gohctVnodWAHWzxnRuxvFqrqKhNy+9ug58zISlFf9wQVucpR7dwSirk/mRpPmZGVMhRF5Kotyrp9t+i8BNZEE9qJ3eY2pheVGWCbWADozHnXmVro0HRQLAEcLmBjlGNiEW2PU5BWP/NaEy6WcS1/8jyMzJpr8fOf1j/fc3rj65Q8AWwBnpMfRqO39Klznj2cg5aZQ9HnyT4AOiyUlS3BeLRldcaBqN4YIdYl+OaSzQ1SVFiMZ6uTHyII/MU16t4oZYHFtNgp4EnGCx0994jm+ErVev4fm3auAPfd0yjqZdqdqzuzkoC8w2L5WTtwHril1UBag+weBTJV9XiQKffemDtGj+1yn02PB0kkEolEIpFIJBIJWSa/AV6GBCbKNy/yAAAAAElFTkSuQmCC"/>
-</defs>
-</svg>
-</button>
-<select id="filterSelect" onchange="renderTasks()" title="Filter tasks" class="relative font-[Baloo] text-white ml-[50px] 
-    w-[150px] h-[50px] font-normal text-[24px] leading-[100%]
-     rounded-xl shadow-xl border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] pl-[15px]">
-       
-        <option class="all bg-[#C4BABA5E] border-[#FFFFFFB2] border-[2px] text-white" value="all">ALL</option>
-        <option class="complete bg-[#C4BABA5E] border-[#FFFFFFB2] border-[2px] text-white" value="complete">Completed</option>
-        <option class="incomplete bg-[#C4BABA5E] border-[#FFFFFFB2] border-[2px] text-white" value="incomplete">Incomplete</option>
-      </select>
-</div>
+      
+        <div class="relative flex items-center justify-center pt-[44px] w-full gap-[30px] px-5">
+            <input type="text" id="taskInput" placeholder="Enter Your Task"
+                class="w-[500px] h-[50px] rounded-[2px] text-[#FFFFFF] text-left text-xl font-['Baloo_Tammudu_2'] shadow-xl border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] pl-4 pt-3">
 
-<div class="relative flex mx-auto px-5 max-w-[1144px] w-full"></div>
-<ul id="taskList" class="relative z-10 w-full flex flex-col gap-4 mt-10"></ul>
-</div>
-<script src="script.js"></script>
+            <button onclick="addTask()" title="Add task" class="w-[50px] h-[50px] flex-shrink-0 rounded-full border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2]">
+                <svg width="50px" height="50px" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="90" height="90" fill="url(#pattern0_30_326)"/>
+                    <defs>
+                        <pattern id="pattern0_30_326" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_30_326" transform="scale(0.0111111)"/>
+                        </pattern>
+                        <image id="image0_30_326" width="90" height="90" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD8ElEQVR4nO2dS08UQRDHKxEVo9ErDxM16BdAPYmRGPWqHtTEV8TXBRNEAnj05uNESPwaPg8Y/QAag0Hg4kW9+Ii6gJ6EBPyZCm3cA6uQ7emumelfspfN7GzVf3d6uquqa0QSiUQikUgkEolEIrE8gFXAbuACcAd4AEwAb4FpYM69pt17E+6Y2+4zu/Qcy/y6cgFsBq4Cj4Ef1M934BHQA7RKmQHWAWeAZ8AC2TELPAVOA41SFoAN7p/2kfB8BW4Am6SoAKuBfmCK+KgNfWqTFAlgLzCJPd4AByTv6JgI3AV+YRe1bRhYK3kE2Aq8ID+8ArZLntDL0dM0LTQ6LdwveQA4Cvwkv8wBJ8QywOWM58ShUB8uiUWAI25xUBQWgONiCR3XgFmKxxxwSCwA7MjpjW8lN8i22CKvddOiojMadZ7tFiMhL+N+oNm9Btx7oRiOJfK+wCu+gSVsGAz4/eprR2iRG4BxwtK8hB1NgW2YDBqIcpdwUKS2LaHpDRlPrpRY6IpqEELokOOiRaGVvhBhz08xPBNbQn/WVFyWQp+N5BjGhFZOZim0JlKjIPaEHslK5NaYQSOxJ/RCJqUMru4iGmJPaOVKFkJrcUs0xKbQ97Io05qJ6ZHYFHrGa/mZq4WLitgUWtnpU+iLsb0Ru0J3+RRaqzqjInaFvulT6IexvRG7Qvu7IUYIieZJ6DGfQr/3kRkRY3jK1LzzaVDFZ2bEGnVGJL/5NKSeX7xZjFNnpmbWitAtYhwXxzEhdD1Dx6AYB7huZeio92Y4aPGfrTY528zcDNP0LtD0Li1YAi1Y0hI80BJcd6RGRWrbFptzPoVOYdLatPsUOgX+QwT+ndi6tzoaUtuu4qSynEO6rTgaYlPo7qwm96nc4C+qRZN3oZ3Y2iUgClLbpmIV0DintO1DFKRkJWGNkdo/UKoix1hF6AaFvpapyM6x9RoaLLHQlSCF6M45bSpSVqF7gohctVnodWAHWzxnRuxvFqrqKhNy+9ug58zISlFf9wQVucpR7dwSirk/mRpPmZGVMhRF5Kotyrp9t+i8BNZEE9qJ3eY2pheVGWCbWADozHnXmVro0HRQLAEcLmBjlGNiEW2PU5BWP/NaEy6WcS1/8jyMzJpr8fOf1j/fc3rj65Q8AWwBnpMfRqO39Klznj2cg5aZQ9HnyT4AOiyUlS3BeLRldcaBqN4YIdYl+OaSzQ1SVFiMZ6uTHyII/MU16t4oZYHFtNgp4EnGCx0994jm+ErVev4fm3auAPfd0yjqZdqdqzuzkoC8w2L5WTtwHril1UBag+weBTJV9XiQKffemDtGj+1yn02PB0kkEolEIpFIJBIJWSa/AV6GBCbKNy/yAAAAAElFTkSuQmCC"/>
+                    </defs>
+                </svg>
+            </button>
+
+        
+            <div class="relative flex-shrink-0" id="customDropdown">
+                <button onclick="toggleDropdown()" id="dropdownBtn"
+                    class="font-['Baloo_Bhaina'] text-white w-[150px] h-[50px] font-normal text-[18px] rounded-[2px] shadow-xl border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] pl-[15px] flex items-center justify-between pr-3">
+                    <span id="dropdownLabel">ALL</span>
+                    <i id="dropdownIcon" class="fa fa-chevron-down text-white text-[18px] transition-transform duration-100">
+                    </i>
+                   </button>
+                <ul id="dropdownMenu"
+                    class="hidden absolute top-[52px] left-0 w-[150px] font-['Baloo_Bhaina'] text-white text-[18px] rounded-[2px] border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] shadow-xl z-50">
+                    <li onclick="selectFilter('all', 'ALL')"
+                        class="px-4 py-2 hover:bg-[#ffffff] hover:text-gray-500  cursor-pointer">ALL</li>
+                    <li onclick="selectFilter('complete', 'Completed')"
+                        class="px-4 py-2 hover:bg-[#ffffff] hover:text-gray-500 cursor-pointer">Completed</li>
+                    <li onclick="selectFilter('incomplete', 'Incomplete')"
+                        class="px-4 py-2 hover:bg-[#ffffff] hover:text-gray-500 cursor-pointer">Incomplete</li>
+                </ul>
+            </div>
+        </div>
+
+  
+    <ul id="taskList" class="relative z-10 w-full flex flex-col gap-4 mt-10 px-5 max-w-[1000px] mx-auto items-center justify-between"></ul>
+    </div>                    
+
+    <script src="script.js"></script>
 </body>
 </html>
